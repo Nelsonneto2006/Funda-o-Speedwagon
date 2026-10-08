@@ -1,0 +1,377 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    line-height: 1.5;
+}
+
+
+header {
+    background-color: #2d416d;
+    color: white;
+
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 35px 6%;
+
+    border-radius: 0 0 8px 8px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 22px;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 35px;
+}
+
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.area-superior {
+    display: contents;
+}
+
+#resumo {
+    background-color: #d9d9d9;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+#resumo p {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+
+#dashboard {
+    background-color: #455b88;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    min-height: 230px;
+}
+
+#dashboard h2 {
+    margin-bottom: 30px;
+}
+
+#dashboard > div {
+    display: flex;
+
+    justify-content: space-around;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+#dashboard > div > div {
+    text-align: center;
+}
+
+#dashboard span {
+    display: block;
+
+    font-size: 42px;
+    font-weight: bold;
+}
+
+#dashboard p {
+    font-size: 17px;
+}
+
+
+.area-principal {
+    display: contents;
+}
+
+.coluna-esquerda {
+    display: contents;
+}
+
+
+#cadastro,
+#busca-despesa,
+#detalhes-despesa,
+#listagem {
+    background-color: #d9d9d9;
+
+    padding: 30px;
+
+    border-radius: 12px;
+}
+
+
+#form-despesa {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+#form-despesa > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #999;
+
+    border-radius: 6px;
+
+    background-color: white;
+
+    font-size: 16px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #455b88;
+}
+
+
+button {
+    border: none;
+
+    background-color: #2d416d;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-family: inherit;
+}
+
+button:hover {
+    background-color: #1f3158;
+}
+
+#busca-despesa > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 15px;
+}
+
+
+#listagem {
+    min-height: 600px;
+}
+
+#lista-despesas {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.item-despesa {
+    background-color: white;
+
+    padding: 18px;
+
+    border-radius: 8px;
+
+    border-left: 5px solid #2d416d;
+}
+
+.item-despesa p {
+    margin-bottom: 12px;
+
+    color: #444;
+}
+
+.item-despesa button {
+    margin-top: 5px;
+}
+
+
+#detalhes-despesa {
+    min-height: 250px;
+}
+
+#detalhes-despesa p {
+    margin-bottom: 8px;
+}
+
+#detalhes-despesa button {
+    margin-top: 15px;
+}
+
+footer {
+    background-color: #2d416d;
+
+    color: white;
+
+    min-height: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        min-height: 150px;
+
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    #dashboard > div {
+        flex-direction: row;
+    }
+
+    #listagem {
+        min-height: auto;
+    }
+
+    main {
+    display: block;
+}
+}
+
+
+@media (max-width: 500px) {
+
+    main {
+        width: 94%;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    #resumo,
+    #dashboard,
+    #cadastro,
+    #busca-despesa,
+    #detalhes-despesa,
+    #listagem {
+        padding: 20px;
+    }
+
+    #dashboard > div {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #dashboard span {
+        font-size: 34px;
+    }
+}
+
+.texto-pagas {
+    color: #2d416d;
+}
+
+.texto-pendentes {
+    color: #FFDE21;
+}
+
+#resumo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#dashboard {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+}
+
+#cadastro {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#busca-despesa {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#detalhes-despesa {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+#listagem {
+    grid-column: 2;
+    grid-row: 4;
+}

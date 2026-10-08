@@ -1,32 +1,283 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Gastos</title>
+
+    <title>Fundação SpeedWagon</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
     <header>
-        <h1>Controle de Gastos</h1>
-        <p>Esse site tem o intuito de listar os gastos do usuário.</p>
+        <div>
+            <h1>Fundação SpeedWagon</h1>
+            <p>Desde 1910 | Em gratidão aos Joestars</p>
+        </div>
+
+        <div>
+            <!-- Logo aqui -->
+        </div>
     </header>
+
+
     <main>
-        <section id = "resumo">
-            <h2>Resumo</h2>
+
+        <!-- Resumo e Dashboard -->
+        <section class="area-superior">
+
+            <section id="resumo">
+                <h2>Resumo</h2>
+
+                <p>Total de Despesas: <span id="total-despesas">0</span></p>
+
+                <p>Despesas pagas: <span id="despesas-pagas">0</span></p>
+
+                <p>Despesas pendentes: <span id="despesas-pendentes">0</span></p>
+            </section>
+
+
+            <section id="dashboard">
+                <h2>Dashboard</h2>
+
+                <div>
+                    <div>
+                        <span id="dashboard-total">0</span>
+                        <p>Total</p>
+                    </div>
+
+                    <div>
+                        <span id="dashboard-pagas">0</span>
+                        <p class = "texto-pagas">Pagas</p>
+                    </div>
+
+                    <div>
+                        <span id="dashboard-pendentes">0</span>
+                        <p class = "texto-pendentes">Pendentes</p>
+                    </div>
+                </div>
+                <canvas id="grafico-status" width="300" height="300"></canvas>
+                <canvas id="grafico-categorias" width="500" height="300"></canvas>
+            </section>
+
         </section>
 
-        <section id = "cadastro">
-            <h2>Cadastro</h2>
+
+        <!-- Área Princpal aqui -->
+        <section class="area-principal">
+
+            <!-- Coluna da esquerda -->
+            <div class="coluna-esquerda">
+
+                <!-- Cadastro -->
+                <section id="cadastro">
+                    <h2>Cadastro de despesa</h2>
+
+                    <form id="form-despesa">
+
+                        <div>
+                            <label for="descricao">Descrição:</label>
+                            <input
+                                type="text"
+                                id="descricao"
+                                name="descricao"
+                                placeholder="Digite a descrição da despesa"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="valor">Valor:</label>
+                            <input
+                                type="number"
+                                id="valor"
+                                name="valor"
+                                step="0.01"
+                                min="0"
+                                placeholder="Digite o valor"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="categoria">Categoria:</label>
+                            <select id="categoria" name="categoria">
+
+                                <option value="">Selecione uma categoria</option>
+
+                                <option value="alimentacao">
+                                    Alimentação
+                                </option>
+
+                                <option value="transporte">
+                                    Transporte
+                                </option>
+
+                                <option value="lazer">
+                                    Lazer
+                                </option>
+
+                                <option value="moradia">
+                                    Moradia
+                                </option>
+
+                                <option value="saude">
+                                    Saúde
+                                </option>
+
+                                <option value="missao-secreta">
+                                    Missão Secreta
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="pagamento">Forma de pagamento:</label>
+                            <select id="pagamento" name="pagamento">
+
+                                <option value="">Selecione uma forma de pagamento</option>
+
+                                <option value="pix">
+                                    Pix
+                                </option>
+
+                                <option value="dinheiro">
+                                    Dinheiro
+                                </option>
+
+                                <option value="cartao">
+                                    Cartão
+                                </option>
+
+                                <option value="boleto">
+                                    Boleto
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="status">Status:</label>
+                            <select id="status" name="status">
+
+                                <option value="">Selecione o status</option>
+
+                                <option value="pago">
+                                    Pago
+                                </option>
+
+                                <option value="pendente">
+                                    Pendente
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="data">Data:</label>
+                            <input
+                                type="date"
+                                id="data"
+                                name="data"
+                            >
+                        </div>
+
+                        <button type="submit">
+                            Cadastrar despesa
+                        </button>
+
+                    </form>
+                </section>
+
+
+                <!-- BUSCA -->
+                <section id="busca-despesa">
+
+                    <h2>Buscar despesa</h2>
+
+                    <div>
+                        <label for="busca">
+                            Buscar por descrição:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="busca"
+                            placeholder="Digite uma descrição"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="filtro-status">
+                            Filtrar por status:
+                        </label>
+
+                        <select id="filtro-status">
+
+                            <option value="">
+                                Todos
+                            </option>
+
+                            <option value="pago">
+                                Pagas
+                            </option>
+
+                            <option value="pendente">
+                                Pendentes
+                            </option>
+
+                        </select>
+                    </div>
+
+                </section>
+
+
+                <!-- DETALHES -->
+                <section id="detalhes-despesa">
+
+                    <h2>Detalhes da despesa</h2>
+
+                    <p>
+                        Selecione uma despesa na listagem
+                        para visualizar seus detalhes.
+                    </p>
+
+                </section>
+
+            </div>
+
+
+            <!-- Coluna da Direita -->
+            <section id="listagem">
+
+                <h2>Listagem</h2>
+
+                <div id="lista-despesas">
+                    <p>Carregando despesas...</p>
+                </div>
+
+            </section>
+
         </section>
 
-        <section id = "listagem">
-            <h2>Listagem</h2>
-        </section>
     </main>
+
+
     <footer>
-        <p>Projeto da Unidade 1 de Desevolvimento Web | Ciências da Computação | 6º Período</p>
+
+        <p>
+            Projeto da Unidade 1 de Desenvolvimento Web |
+            Ciências da Computação |
+            6º Período
+        </p>
+
     </footer>
+
+
     <script src="js/app.js"></script>
+
 </body>
+
 </html>
